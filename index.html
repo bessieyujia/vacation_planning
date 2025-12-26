@@ -646,38 +646,6 @@
       white-space: pre-wrap;
       font-size: 0.95rem;
     }
-    .proposals {
-      margin-top: 16px;
-      display: grid;
-      gap: 12px;
-    }
-    .proposal-card {
-      background: rgba(255,255,255,0.75);
-      border: 1px solid rgba(176,139,62,0.3);
-      border-radius: 12px;
-      padding: 12px 14px;
-      box-shadow: 0 10px 18px rgba(10,43,34,0.08);
-    }
-    .proposal-title {
-      margin: 0 0 6px;
-      font-size: 1rem;
-      color: #2a3a33;
-    }
-    .proposal-text {
-      margin: 0 0 8px;
-      color: #3e4c45;
-      font-size: 0.9rem;
-    }
-    .proposal-list {
-      margin: 0;
-      padding-left: 18px;
-      color: #3e4c45;
-      font-size: 0.9rem;
-    }
-    .loading {
-      font-style: italic;
-      color: #6b7280;
-    }
 
     .small {
       font-size: 0.8rem;
@@ -1467,11 +1435,6 @@
       <p>Here is what I’ll use to design your vacation:</p>
       <div id="summaryText" class="summary"></div>
 
-      <div id="proposalSection" class="proposals" style="display:none;">
-        <h3>Travel Proposals</h3>
-        <div id="proposalList"></div>
-      </div>
-
       <button class="primary-btn button" style="margin-top:12px;" onclick="copySummary()">
         Copy plan (for Bessie)
       </button>
@@ -1644,7 +1607,6 @@
 
       document.getElementById("tripForm").style.display = "none";
       document.getElementById("summaryCard").style.display = "block";
-      generateProposals(summaryText);
     }
 
     function getRadioValue(name) {
@@ -1686,67 +1648,6 @@
       if (finalCard) finalCard.classList.add("is-revealed");
     }
 
-    async function generateProposals(summaryText) {
-      const section = document.getElementById("proposalSection");
-      const list = document.getElementById("proposalList");
-      if (!section || !list) return;
-
-      section.style.display = "block";
-      list.innerHTML = `<p class="loading">Creating a few trip ideas…</p>`;
-
-      try {
-        const response = await fetch("/api/travel-proposals", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            model: "gpt-4o-mini",
-            summary: summaryText,
-            prompt: "Here is a summary of what a vacation wish for a couple in their 50s is. Can you come up with 3 options that fit their wishes and also give a short summary of the location and the activities?"
-          })
-        });
-
-        if (!response.ok) {
-          throw new Error("Proposal request failed");
-        }
-
-        const data = await response.json();
-        renderProposals(data, list);
-      } catch (err) {
-        list.innerHTML = `<p class="loading">Could not load proposals yet. Please try again later.</p>`;
-      }
-    }
-
-    function renderProposals(data, container) {
-      const proposals = Array.isArray(data?.proposals) ? data.proposals : [];
-      if (!proposals.length) {
-        container.innerHTML = `<p class="loading">No proposals returned.</p>`;
-        return;
-      }
-
-      const cards = proposals.map((proposal) => {
-        const title = proposal.title || "Trip idea";
-        const text = proposal.description || proposal.overview || "";
-        const bullets = Array.isArray(proposal.highlights)
-          ? proposal.highlights
-          : Array.isArray(proposal.bullets)
-          ? proposal.bullets
-          : [];
-
-        const bulletsHtml = bullets.length
-          ? `<ul class="proposal-list">${bullets.map((item) => `<li>${item}</li>`).join("")}</ul>`
-          : "";
-
-        return `
-          <div class="proposal-card">
-            <h4 class="proposal-title">${title}</h4>
-            ${text ? `<p class="proposal-text">${text}</p>` : ""}
-            ${bulletsHtml}
-          </div>
-        `;
-      }).join("");
-
-      container.innerHTML = cards;
-    }
 
     function initSnowflakes() {
       const container = document.querySelector(".snowflake-area");
