@@ -1,0 +1,1964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mom & Dad's Dream Trip</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;700&family=Quicksand:wght@400;500;600&display=swap");
+    @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+    :root {
+      --evergreen: #0d3a2d;
+      --holly: #7b1a2a;
+      --gold: #c89a3b;
+      --cream: #fbf7ef;
+      --ink: #1f2a33;
+      --pine-mist: #e5efe6;
+      --snow: #ffffff;
+      --wine: #6a1b26;
+      --antique-gold: #d0a348;
+      --deep-forest: #0a2b22;
+      --ruby: #a61f35;
+    }
+    * { box-sizing: border-box; font-family: "Quicksand", "Segoe UI", sans-serif; }
+    body {
+      margin: 0;
+      padding: 0;
+      background:
+        radial-gradient(circle at 18% 20%, rgba(255,255,255,0.08) 0 2px, transparent 3px),
+        radial-gradient(circle at 82% 25%, rgba(255,255,255,0.06) 0 2px, transparent 3px),
+        radial-gradient(circle at 35% 55%, rgba(255,255,255,0.05) 0 2px, transparent 3px),
+        radial-gradient(circle at 70% 70%, rgba(255,255,255,0.04) 0 2px, transparent 3px),
+        linear-gradient(165deg, #071328 0%, #0c1c36 45%, #122446 100%);
+      color: var(--ink);
+      position: relative;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle, rgba(255,255,255,0.8) 0 2px, transparent 3px),
+        radial-gradient(circle, rgba(255,255,255,0.65) 0 1.5px, transparent 3px),
+        radial-gradient(circle, rgba(255,255,255,0.55) 0 2.5px, transparent 4px),
+        radial-gradient(circle, rgba(255,255,255,0.45) 0 1.5px, transparent 3px);
+      background-size: 180px 180px, 140px 140px, 220px 220px, 260px 260px;
+      animation: snow-fall 12s linear infinite;
+      opacity: 0.9;
+    }
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 12% 20%, rgba(208,163,72,0.35) 0 52px, transparent 160px),
+        radial-gradient(circle at 82% 18%, rgba(255,255,255,0.25) 0 44px, transparent 150px),
+        radial-gradient(circle at 70% 65%, rgba(208,163,72,0.3) 0 60px, transparent 170px),
+        radial-gradient(circle at 28% 72%, rgba(255,255,255,0.22) 0 42px, transparent 140px),
+        radial-gradient(circle at 55% 10%, rgba(166,31,53,0.18) 0 50px, transparent 180px);
+      animation: lights-float 20s ease-in-out infinite;
+      opacity: 0.85;
+    }
+    .snowflake-area {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .snowflake {
+      position: absolute;
+      top: -6vh;
+      font-size: 10px;
+      opacity: 0.9;
+      color: #ffffff;
+      text-shadow:
+        0 0 6px rgba(255,255,255,0.75),
+        0 0 12px rgba(201,162,74,0.45);
+      animation: fall linear infinite, flickr linear infinite;
+    }
+    .snowflake._md { font-size: 1.5em; }
+    .snowflake._lg { font-size: 2.25em; }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 16px 16px 40px;
+      position: relative;
+      z-index: 1;
+    }
+    h1, h2, h3 {
+      margin-top: 0;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 12px;
+      font-family: "Fraunces", Georgia, serif;
+      color: var(--evergreen);
+      letter-spacing: 0.4px;
+      text-shadow: 0 2px 0 rgba(255,255,255,0.7);
+    }
+    p {
+      line-height: 1.5;
+    }
+    .card {
+      background: var(--cream);
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 16px 32px rgba(10,43,34,0.16);
+      margin-bottom: 16px;
+      border: 1px solid rgba(15,61,46,0.15);
+    }
+    .hero {
+      position: relative;
+      text-align: center;
+      padding: 22px 18px 26px;
+      background:
+        linear-gradient(135deg, rgba(15,61,46,0.12), rgba(202,166,77,0.15)),
+        var(--cream);
+    }
+    .hero-badge {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #0f3b2e, #071f19);
+      color: var(--snow);
+      font-size: 0.8rem;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+    }
+    .hero-sub {
+      margin: 0 auto;
+      max-width: 420px;
+      color: #3b4b42;
+      font-weight: 500;
+    }
+    .hero-garland {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .hero-garland span {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--holly);
+      box-shadow: 0 0 0 3px rgba(180,35,42,0.2);
+      animation: twinkle 2.6s ease-in-out infinite;
+    }
+    .hero-garland span:nth-child(2n) {
+      background: var(--gold);
+      box-shadow: 0 0 0 3px rgba(202,166,77,0.2);
+      animation-delay: 0.6s;
+    }
+    .hero-garland span:nth-child(3n) {
+      background: var(--evergreen);
+      box-shadow: 0 0 0 3px rgba(15,61,46,0.2);
+      animation-delay: 1.2s;
+    }
+    .landing {
+      text-align: center;
+      padding: 26px 18px 30px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: calc(100vh - 64px);
+    }
+    .landing-inner {
+      position: relative;
+      min-height: clamp(300px, 50vw, 360px);
+      display: grid;
+      place-items: center;
+      padding: 12px 12px 28px;
+    }
+    .landing::before,
+    .landing::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+    .landing::before {
+      background:
+        radial-gradient(circle at 12% 18%, rgba(255,255,255,0.7) 0 6px, transparent 7px),
+        radial-gradient(circle at 82% 26%, rgba(255,255,255,0.6) 0 4px, transparent 6px),
+        radial-gradient(circle at 30% 72%, rgba(255,255,255,0.55) 0 5px, transparent 6px),
+        radial-gradient(circle at 70% 80%, rgba(255,255,255,0.45) 0 3px, transparent 4px);
+      opacity: 0.45;
+    }
+    .landing::after {
+      background:
+        radial-gradient(circle at 18% 24%, rgba(201,162,74,0.7) 0 2px, transparent 3px),
+        radial-gradient(circle at 62% 18%, rgba(201,162,74,0.55) 0 2px, transparent 3px),
+        radial-gradient(circle at 44% 62%, rgba(201,162,74,0.75) 0 2px, transparent 3px),
+        radial-gradient(circle at 78% 70%, rgba(201,162,74,0.55) 0 2px, transparent 3px),
+        radial-gradient(circle at 50% 50%, rgba(166,31,53,0.35) 0 3px, transparent 4px),
+        radial-gradient(circle at 26% 44%, rgba(255,255,255,0.6) 0 2px, transparent 3px),
+        radial-gradient(circle at 70% 42%, rgba(255,255,255,0.55) 0 2px, transparent 3px);
+      animation: glitter 6.5s ease-in-out infinite;
+      opacity: 0.85;
+    }
+    .landing-lights {
+      position: absolute;
+      top: 6px;
+      left: 8%;
+      right: 8%;
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      pointer-events: none;
+    }
+    .landing-lights span {
+      width: clamp(10px, 2.8vw, 16px);
+      height: clamp(10px, 2.8vw, 16px);
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.9) 0 35%, rgba(201,162,74,0.85) 36% 100%);
+      box-shadow: 0 0 16px rgba(201,162,74,0.75);
+      animation: light-twinkle 4.2s ease-in-out infinite;
+    }
+    .landing-lights span:nth-child(2n) {
+      background: radial-gradient(circle, rgba(255,255,255,0.9) 0 30%, rgba(166,31,53,0.85) 32% 100%);
+      box-shadow: 0 0 16px rgba(166,31,53,0.65);
+      animation-delay: 0.8s;
+    }
+    .landing-lights span:nth-child(3n) {
+      background: radial-gradient(circle, rgba(255,255,255,0.9) 0 30%, rgba(13,58,45,0.9) 32% 100%);
+      box-shadow: 0 0 16px rgba(13,58,45,0.6);
+      animation-delay: 1.6s;
+    }
+    .landing-inner::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 40% 20%, rgba(255,255,255,0.7) 0 2px, transparent 3px),
+        radial-gradient(circle at 65% 30%, rgba(201,162,74,0.8) 0 2px, transparent 3px),
+        radial-gradient(circle at 30% 60%, rgba(255,255,255,0.6) 0 2px, transparent 3px),
+        radial-gradient(circle at 70% 68%, rgba(201,162,74,0.7) 0 2px, transparent 3px),
+        radial-gradient(circle at 50% 80%, rgba(255,255,255,0.65) 0 2px, transparent 3px);
+      animation: sparkle-drift 7.5s ease-in-out infinite;
+      opacity: 0.75;
+    }
+    .present-btn {
+      border: none;
+      background: transparent;
+      padding: 0;
+      cursor: pointer;
+      position: relative;
+      width: min(320px, 78vw);
+      height: min(260px, 68vw);
+      display: block;
+      border-radius: 0;
+    }
+    .present {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      transform-style: preserve-3d;
+      z-index: 1;
+      overflow: visible;
+    }
+    .present-lid {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      right: 10px;
+      height: 110px;
+      z-index: 2;
+      border-radius: 18px;
+      background:
+        linear-gradient(135deg, #9b2437 0%, #7b1a2a 55%, #5d1521 100%),
+        linear-gradient(90deg, rgba(255,255,255,0.6) 0 18%, transparent 18% 82%, rgba(255,255,255,0.6) 82% 100%),
+        radial-gradient(circle at 25% 20%, rgba(255,255,255,0.35) 0 35%, transparent 60%);
+      box-shadow: 0 14px 26px rgba(90,22,33,0.4);
+      transform-origin: top center;
+    }
+    .present-body {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      right: 16px;
+      height: 150px;
+      z-index: 1;
+      border-radius: 20px;
+      background:
+        linear-gradient(135deg, #b42a3f 0%, #8a1e2f 60%, #5f1421 100%),
+        linear-gradient(90deg, rgba(255,255,255,0.6) 0 18%, transparent 18% 82%, rgba(255,255,255,0.6) 82% 100%),
+        radial-gradient(circle at 20% 15%, rgba(255,255,255,0.25) 0 30%, transparent 60%);
+      box-shadow: 0 20px 36px rgba(90,22,33,0.45);
+    }
+    .present-ribbon {
+      position: absolute;
+      top: 10px;
+      bottom: 16px;
+      left: 50%;
+      width: 34px;
+      transform: translateX(-50%);
+      background: linear-gradient(180deg, #f7edcf 0%, #dfb35f 55%, #b08b3e 100%);
+      border-radius: 14px;
+      box-shadow: inset 0 0 0 1px rgba(90,60,12,0.45);
+      z-index: 3;
+    }
+    .present-bow {
+      position: absolute;
+      top: -18px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 150px;
+      height: 86px;
+      display: flex;
+      z-index: 6;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .present-santa {
+      position: absolute;
+      left: 50%;
+      bottom: 143px;
+      width: clamp(140px, 36vw, 210px);
+      transform: translateX(-50%) translateY(12px) scale(0.98) translateZ(2px);
+      opacity: 0;
+      transition: opacity 0.5s ease, transform 0.6s ease;
+      z-index: 10;
+      pointer-events: none;
+      filter: drop-shadow(0 12px 24px rgba(0,0,0,0.25));
+    }
+    .present-btn.is-opening .present-santa {
+      opacity: 1;
+      transform: translateX(-50%) translateY(-6px) scale(1);
+    }
+    .bow-loop {
+      flex: 1;
+      background: linear-gradient(135deg, #f7edcf 0%, #d7ad55 60%, #a57c32 100%);
+      border-radius: 50% 50% 40% 40%;
+      box-shadow: 0 10px 18px rgba(140,96,32,0.35);
+      position: relative;
+    }
+    .bow-knot {
+      position: absolute;
+      top: 30px;
+      left: 50%;
+      width: 34px;
+      height: 34px;
+      transform: translateX(-50%);
+      border-radius: 50%;
+      background: linear-gradient(180deg, #fff3d9, #c9a24a);
+      box-shadow: inset 0 0 0 1px rgba(90,60,12,0.5);
+    }
+    .present-message {
+      position: relative;
+      z-index: 2;
+      max-width: 440px;
+      margin: 0 auto;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+      pointer-events: none;
+      margin-top: 10px;
+    }
+    .present-title {
+      font-family: "Fraunces", Georgia, serif;
+      color: var(--evergreen);
+      font-size: 1.7rem;
+      margin-bottom: 8px;
+    }
+    .present-copy {
+      color: #2e3e37;
+      font-weight: 500;
+      display: inline-block;
+      padding: 10px 14px;
+      border: 1px solid rgba(176,139,62,0.5);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.65);
+      box-shadow: 0 6px 14px rgba(16,42,34,0.12);
+    }
+    .present-actions {
+      margin-top: 22px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .start-btn {
+      border: none;
+      border-radius: 999px;
+      padding: 10px 18px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .is-opening .present-lid {
+      animation: lid-open 0.9s ease forwards;
+    }
+    .is-opening .present-bow {
+      animation: bow-bounce 0.9s ease;
+    }
+    .is-opening::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow:
+        -40px -26px 0 0 rgba(202,166,77,0.9),
+        36px -18px 0 0 rgba(255,255,255,0.9),
+        -14px 34px 0 0 rgba(202,166,77,0.8),
+        26px 28px 0 0 rgba(255,255,255,0.8);
+      animation: sparkle 0.9s ease-out;
+      pointer-events: none;
+    }
+    .show-message .present-message {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    label {
+      display: block;
+      margin: 6px 0 2px;
+      font-size: 0.9rem;
+    }
+    input[type="text"],
+    input[type="date"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 8px;
+      border-radius: 6px;
+      border: 1px solid rgba(15,61,46,0.2);
+      font-size: 0.95rem;
+      background: #fff;
+    }
+    input:focus,
+    textarea:focus,
+    select:focus {
+      outline: 2px solid rgba(202,166,77,0.5);
+      border-color: rgba(202,166,77,0.8);
+    }
+    textarea { min-height: 70px; resize: vertical; }
+
+    .options {
+      margin: 4px 0 8px;
+    }
+    .options label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin: 4px 0;
+      font-weight: normal;
+    }
+    .question-visual {
+      margin-top: 14px;
+    }
+    .image-choice-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .image-choice {
+      position: relative;
+      border: 1px solid rgba(15,61,46,0.16);
+      border-radius: 14px;
+      background: rgba(255,255,255,0.75);
+      box-shadow: 0 10px 18px rgba(10,43,34,0.08);
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      min-height: 120px;
+    }
+    .image-choice input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .image-choice-inner {
+      height: 100%;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      justify-content: center;
+      text-align: center;
+      color: #21312b;
+    }
+    .image-choice-emoji {
+      font-size: 1.7rem;
+    }
+    .image-choice-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .image-choice-sub {
+      font-size: 0.8rem;
+      color: #54635b;
+    }
+    .image-choice input:checked + .image-choice-inner {
+      border-radius: 12px;
+      box-shadow: inset 0 0 0 2px rgba(201,162,74,0.6);
+      background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(244,237,215,0.9));
+    }
+    .image-choice:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 20px rgba(10,43,34,0.12);
+    }
+    @media (max-width: 520px) {
+      .image-choice-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    button {
+      flex: 1;
+      border: none;
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .primary-btn {
+      font-weight: 600;
+    }
+
+    /* Christmas snowcap button styles */
+    .button {
+      display: inline-block;
+      -webkit-box-sizing:border-box;
+         -moz-box-sizing:border-box;
+              box-sizing:border-box;
+      min-width:100px;
+      padding: 14px 22px;
+      font-family: 'Lobster', cursive;
+      font-size: 20px;
+      line-height: 20px;
+      text-decoration: none;
+      color: #FFF;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.75);
+      background: #5e0d0c;
+      outline: none;
+      border-radius: 15px;
+      border: 1px solid #4c0300;
+      box-shadow:
+        inset 1px 1px 0px rgba(255,255,255,0.25),
+        inset 0 0 6px #a23227,
+        inset 0 80px 80px -40px #ac3223,
+        1px 1px 3px rgba(0,0,0,0.75);
+      position: relative;
+      overflow: visible;
+      -webkit-transition: 500ms linear;
+         -moz-transition: 500ms linear;
+           -o-transition: 500ms linear;
+                  transition: 500ms linear;
+    }
+
+    .button::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: -7px;
+      left: -3px;
+      right: 0;
+      height: 23px;
+      background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACsAAAAXCAYAAACS5bYWAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABFpJREFUeNrUV0tIo1cUvpkYjQ4xxSA6DxuNqG0dtaUKOgs3s6i0dFd3pSsXdjeIixakiGA34sZuXCkoONLFwJTK4GMYLYXg29gatTpiXurkbd7vv9/5ub+IxuhA7eiFQ5Kbc8/57ne/e87/ywRBYLdl3GG3aNwqsLJ0k0tLS+fmcnNzWUVFBVMoFGx2djarvLxcm5OTw+bm5iytra2xc4ExNjY27iqVyvvwK6CpeDzuCYVC1urq6qDA9UcfPp+PHR4esmAwKK6tr68/l5/8rgQ2Ozub1dbWyiYmJooaGxt/VqvV38jlchX9l0qlwoFA4DWS/RKLxRxFRUVf5+XlPcaaT2AP0sVPJBL2SCRiAPBpu93+vKamZo/Ae71eZjabWV1dXVqw7CKwp43ksrCw8Bhg7MJ/PLDZ5PHx8cz29vYT5JGD/bSYLgTrcDgYdk6siSc6NjZWDaAe4ZoHQL+cmZnRpZPnhWDpD8kw7uKo9ML/NMCsd2tr61vkzboMrEyv138M7TyLRqMWMBsX3sMgaZhMpp+AR5EJrCocDpuEGzKg4x8khs+CVWxubvZfR9JkMik4nU7BarUKLpeLmLsKuwIqTLynp4fqmIzASrqQT09Pf1VVVfX0KsWZ6uHBwQHTaDSsoKAgo6/H4xHLEcrVyRwuEisrKzs5XrrIVAVwiUVDKRRrL+YI32ewdVhMApuHWvcj6vids6J2u90MF4yBHUZNgKoEBaRBQalJqFSqtJfUYrGIlQX+ydXVVTN+u0tKSjQNDQ1axJVl2iTypebn55d7e3v/kqoDgZU1NTU9LCws/Py0M+2ekuGincxJ3yF+18jIyHJLS0slQJUWFxczrBeBE0vE5tHRkbixlZWVfSR8gTX/0P5gH7S1tX3Z3t7+BW8qAvwSfr8/jA0EIRM/qoFtampqbW9vTw+XA+ojUruVd3Z2tvb19T2TQFEim81GgVJoCvvj4+NLOJZgaWmpemdn5y3a6BbcnJDAw8HBwac6ne6eqCW5XDwB3qVSqM9/DAwMUNy/eVLabT7sI25qwgujThCBhWE+mAt2yNc4SQKSZrOQQE1HS22VJkmPAGTr7+//fX19fRk+Zgq0trbGeFAKEAQT98BSqKOj47vm5uaa/Px8JeIk4GcaHh6eWlxcfAU/A8xG67BxAX3fwdcbYUpSDJ06Z49Ak8ZC3OL8f3YiA4PBYKdLQ2AJ9OTk5GpXV9cQiCVh79M94QtlPLDUE/1gPNrd3f0W33W4cBoco48zQuy/IZYAMnGqlSc4c66L9JruQUaSARXeT8HGKzxAqFBekni6+h46+pMzGiJGMgTOJh1yU/KNEGDvZWvfBawkA9ppwGg0mrRa7SOI2g+gxOgbJIpdFpj72PnxSnPX8vqRxTURgBQWKisrH+GThOm+CtAzoK/9/Uiqq/6hoaHfdnd3jaOjo7/yY7yxbwqkWy3sQzpS2C6YirwvUJk0y7hurfyGRrnduPGvAAMASmo8wzeVwfsAAAAASUVORK5CYII=) no-repeat 0 0;
+    }
+
+    .button:hover {
+      background: #a61715;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.75), 0 0 40px #FFF;
+      box-shadow:
+        inset 1px 1px 0px rgba(255,255,255,0.25),
+        inset 0 0 6px #da3b2c,
+        inset 0 80px 80px -40px #dd4330,
+        1px 1px 3px rgba(0,0,0,0.75);
+    }
+
+    .button:focus {
+      outline: none;
+    }
+
+    .button:active {
+      box-shadow:
+        inset 1px 1px 0px rgba(255,255,255,0.25),
+        inset 0 0 6px #da3b2c,
+        inset 0 80px 80px -40px #dd4330,
+        0px 1px 0px rgba(255,255,255,0.25);
+      -webkit-transition: 50ms linear;
+         -moz-transition: 50ms linear;
+           -o-transition: 50ms linear;
+              transition: 50ms linear;
+    }
+    .secondary-btn {
+      background: #e0e7e2;
+      color: #29453b;
+    }
+    .gold-sparkle-btn {
+      background: linear-gradient(135deg, #f5e8c8, #d6b975);
+      color: #ffffff;
+      font-weight: 400;
+      position: relative;
+      overflow: hidden;
+      box-shadow:
+        0 0 6px rgba(255, 236, 200, 0.6),
+        0 0 14px rgba(214, 185, 117, 0.7);
+    }
+    .gold-sparkle-btn::after {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.65) 0 4px, transparent 5px),
+        radial-gradient(circle at 70% 30%, rgba(255,255,255,0.5) 0 3px, transparent 4px),
+        radial-gradient(circle at 40% 70%, rgba(255,255,255,0.55) 0 4px, transparent 5px);
+      opacity: 0.0;
+      pointer-events: none;
+      animation: gold-sparkle-pulse 2.4s ease-in-out infinite;
+    }
+    .primary-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .step {
+      display: none;
+    }
+    .step-active {
+      display: block;
+    }
+
+    .summary {
+      white-space: pre-wrap;
+      font-size: 0.95rem;
+    }
+    .proposals {
+      margin-top: 16px;
+      display: grid;
+      gap: 12px;
+    }
+    .proposal-card {
+      background: rgba(255,255,255,0.75);
+      border: 1px solid rgba(176,139,62,0.3);
+      border-radius: 12px;
+      padding: 12px 14px;
+      box-shadow: 0 10px 18px rgba(10,43,34,0.08);
+    }
+    .proposal-title {
+      margin: 0 0 6px;
+      font-size: 1rem;
+      color: #2a3a33;
+    }
+    .proposal-text {
+      margin: 0 0 8px;
+      color: #3e4c45;
+      font-size: 0.9rem;
+    }
+    .proposal-list {
+      margin: 0;
+      padding-left: 18px;
+      color: #3e4c45;
+      font-size: 0.9rem;
+    }
+    .loading {
+      font-style: italic;
+      color: #6b7280;
+    }
+
+    .small {
+      font-size: 0.8rem;
+      color: #6b7280;
+      margin-top: 4px;
+    }
+    .final-overlay {
+      position: fixed;
+      inset: 0;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      background-color: #fcb592;
+      z-index: 999;
+      padding: 20px;
+    }
+    .final-overlay.show {
+      display: flex;
+    }
+    input#open {
+      display: none;
+    }
+    .christmas-card {
+      position: relative;
+      width: 200px;
+      height: 300px;
+      transform-style: preserve-3d;
+      transform: perspective(2500px) scale(1.8);
+      transition: 3s;
+    }
+    @media (max-width: 480px) {
+      .christmas-card {
+        transform: perspective(2500px) scale(1.4);
+      }
+    }
+    .card-front {
+      position: relative;
+      background-color: #fff;
+      width: 200px;
+      height: 300px;
+      overflow: hidden;
+      transform-origin: left;
+      box-shadow: inset 100px 20px 100px rgba(0,0,0,.13), 30px 0 50px rgba(0,0,0,0.1);
+      transition: .3s;
+    }
+    .card-front:before {
+      content:"";
+      position: absolute;
+      width: 180px;
+      height: 280px;
+      background-color: #c94038;
+      top: 10px;
+      left: 10px;
+    }
+    .christmas-tree {
+      position: absolute;
+      width:0;
+      height:0;
+      border-right: 50px solid transparent;
+      border-left: 50px solid transparent;
+      border-bottom: 160px solid #034247;
+      top: 75px;
+      left:50px;
+    }
+    .christmas-tree:after {
+      content:"";
+      position: absolute;
+      width: 100px;
+      height: 25px;
+      background-color: #c47f1a;
+      left:-50px;
+      top:140px;
+    }
+    .christmas-tree:before {
+      content:"";
+      position: absolute;
+      background-color: #a86d16;
+      width:50px;
+      height: 25px;
+      top:130px;
+      left:20px;
+      box-shadow: -90px 0 #a86d16;
+    }
+    .card-inside {
+      position: absolute;
+      background-color: #fff;
+      width: 200px;
+      height:300px;
+      z-index:-1;
+      left:0;
+      top:0;
+      box-shadow: inset 100px 20px 100px rgba(0,0,0,0.2);
+    }
+    .card-inside:before {
+      content:"";
+      position: absolute;
+      width: 180px;
+      height: 280px;
+      background-color: #c94038;
+      top: 10px;
+      left: 10px;
+    }
+    .open {
+      position: absolute;
+      width: 200px;
+      height:300px;
+      left:0;
+      top:0;
+      background-color: transparent;
+      z-index:6;
+      cursor: pointer;
+    }
+    #open:checked ~ .card-front {
+      transform: rotateY(-155deg);
+      box-shadow: inset 100px 20px 100px rgba(0,0,0,.13), 30px 0 50px rgba(0,0,0,0.1);
+    }
+    #open:checked ~ .card-front:before {
+      z-index:5;
+    }
+    .text {
+      position: absolute;
+      color: white;
+      font-family: brush script mt;
+      top:260px;
+      width:200px;
+      text-align: center;
+      font-size:15px;
+    }
+    .text:before {
+      content:"Merry Christmas!";
+      position: absolute;
+      width:80px;
+      color: #333;
+      text-align: center;
+      line-height: 10px;
+      top:-42.5px;
+      left:61px;
+    }
+    .text:after {
+      content:"";
+      position: absolute;
+      width:0;
+      height:0;
+      border-right: 7px solid transparent;
+      border-left: 7px solid transparent;
+      border-bottom: 20px solid #faa307;
+      top:-185px;
+      left:93px;
+    }
+    .ribbon, .ribbon:before {
+      position: absolute;
+      width:0;
+      height:0;
+      border-bottom: 12.5px solid transparent;
+      border-top: 12.5px solid transparent;
+    }
+    .ribbon {
+      border-left: 10px solid #c94038;
+      top:205px;
+      left:30px;
+    }
+    .ribbon:before {
+      content:"";
+      border-right: 10px solid #c94038;
+      left: 120px;
+      top:-12.5px;
+    }
+    .ribbon:after {
+      content:"";
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      border-radius:50%;
+      background-color: white;
+      top:-25px;
+      left:21.5px;
+      box-shadow: 5px -3px white, 10px -6px white, 15px -9px white, 20px -12px white, 25px -15px white, 30px -18px white, 35px -21px white, 40px -24px white, 45px -27px white, 50px -30px white, 55px -33px white, 60px -36px white, 60px -36px white, 15px -50px white, 20px -53px white, 25px -56px white, 30px -59px white, 35px -62px white, 40px -65px white, 45px -68px white, 50px -71px white;
+      animation-name: lights;
+      animation-duration: 3s;
+      animation-iteration-count: infinite;
+    }
+    @keyframes lights {
+      50% {
+        opacity: 0.5;
+        filter: drop-shadow(0 0 3px #ffffff);
+      }
+    }
+    .star {
+      position: absolute;
+      display: block;
+      width: 0px;
+      height: 0px;
+      border-right: 20px solid transparent;
+      border-bottom: 13px solid #ffba08;
+      border-left: 20px solid transparent;
+      transform: rotate(-35deg);
+      top:68px;
+      left:80px;
+      filter: drop-shadow(0 0 10px #ffba08);
+      animation-name: star;
+      animation-duration: 1s;
+      animation-iteration-count: infinite;
+    }
+    .star:before {
+      border-bottom: 13px solid #ffba08;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      position: absolute;
+      height: 0;
+      width: 0;
+      top: -9px;
+      left: -11px;
+      display: block;
+      content: '';
+      transform: rotate(-35deg);
+    }
+    .star:after {
+      position: absolute;
+      display: block;
+      top: 0.75px;
+      left: -20px;
+      width: 0px;
+      height: 0px;
+      border-right: 20px solid transparent;
+      border-bottom: 13px solid #ffba08;
+      border-left: 20px solid transparent;
+      transform: rotate(-70deg);
+      content:'';
+    }
+    @keyframes star {
+      50% {
+        transform: scale(0.5);
+        opacity: 0.5;
+      }
+    }
+    .balls {
+      position: absolute;
+      width:12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: #990B19;
+      top:185px;
+      left:110px;
+      box-shadow: -30px -30px #990B19, -18px -74px #990B19;
+      animation-name: twinkle-1;
+      animation-duration: 2.5s;
+      animation-iteration-count: infinite;
+    }
+    @keyframes twinkle-1 {
+      50% {
+        opacity: 0.5;
+        filter: drop-shadow(0 0 3px #C51A24);
+      }
+    }
+    .balls:before {
+      content:"";
+      position: absolute;
+      border-radius: 50%;
+      widtH: 10px;
+      height: 10px;
+      background-color: #3B97F2;
+      left:-20px;
+      top:10px;
+      box-shadow: 15px -55px #3B97F2;
+      animation-name: twinkle-2;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+    }
+    @keyframes twinkle-2 {
+      50% {
+        opacity: 0.5;
+        filter: drop-shadow(0 0 3px #76BBF4);
+      }
+    }
+    .title {
+      position: absolute;
+      color: #333;
+      font-size:30px;
+      font-family: brush script mt;
+      line-height: 25px;
+      text-align: center;
+      top:45px;
+      width:200px;
+    }
+    .wishes {
+      position: absolute;
+      width: 150px;
+      text-align: center;
+      font-family: brush script mt;
+      line-height:15px;
+      font-size: 16px;
+      color: #333;
+      height: 300px;
+      top: 40%;
+      left:25px;
+    }
+    .wishes .gold-text {
+      color: #c89a3b;
+      font-weight: 400;
+      font-family: inherit;
+    }
+    .gift {
+      position: absolute;
+      border: 3px solid #333;
+      width:30px;
+      height: 30px;
+      top: 245px;
+      left:83px;
+    }
+    .gift:before, .gift:after {
+      content:"";
+      position: absolute;
+      background-color: #333;
+    }
+    .gift:before {
+      width:30px;
+      height:3px;
+      top:14px;
+    }
+    .gift:after {
+      height:30px;
+      width:3px;
+      left: 14px;
+    }
+    .bow {
+      position: absolute;
+    }
+    .bow:before, .bow:after {
+      content:"";
+      position: absolute;
+      width: 7px;
+      height: 7px;
+      border: 3px solid #333;
+      border-radius:50%;
+      top:-14px;
+    }
+    .bow:before {
+      transform: skew(20deg, 10deg);
+      left:2px;
+    }
+    .bow:after {
+      transform: skew(-20deg,-10deg);
+      left:15px;
+    }
+    @keyframes twinkle {
+      0%, 100% { transform: translateY(0); opacity: 0.7; }
+      50% { transform: translateY(-4px); opacity: 1; }
+    }
+    @keyframes snow-fall {
+      0% { transform: translateY(-10%); }
+      100% { transform: translateY(10%); }
+    }
+    @keyframes sparkle {
+      0% { opacity: 0; transform: translate(-50%, -50%) scale(0); }
+      40% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+      100% { opacity: 0; transform: translate(-50%, -50%) scale(1.4); }
+    }
+    @keyframes lid-open {
+      0% { transform: rotateX(0deg) translateY(0); }
+      50% { transform: rotateX(35deg) translateY(-8px); }
+      100% { transform: rotateX(70deg) translateY(-16px); }
+    }
+    @keyframes bow-bounce {
+      0% { transform: translateX(-50%) scale(1); }
+      40% { transform: translateX(-50%) scale(1.08) rotate(-3deg); }
+      70% { transform: translateX(-50%) scale(0.98) rotate(2deg); }
+      100% { transform: translateX(-50%) scale(1) rotate(0deg); }
+    }
+    @keyframes glitter {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 0.9; }
+    }
+    @keyframes light-twinkle {
+      0%, 100% { opacity: 0.6; transform: translateY(0) scale(0.95); }
+      50% { opacity: 1; transform: translateY(-3px) scale(1.05); }
+    }
+    @keyframes sparkle-drift {
+      0%, 100% { opacity: 0.6; transform: translateY(0); }
+      50% { opacity: 1; transform: translateY(-6px); }
+    }
+    @keyframes gold-sparkle-pulse {
+      0%, 100% { opacity: 0; transform: translateY(0) scale(1); }
+      40% { opacity: 0.6; transform: translateY(-4px) scale(1.05); }
+      70% { opacity: 0.2; transform: translateY(2px) scale(0.98); }
+    }
+    body.final-gift {
+      background-color: #B51541;
+      overflow: hidden;
+    }
+    html,
+    body.final-gift {
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    body.final-gift div {
+      display: none;
+    }
+    body.final-gift svg {
+      width: 100%;
+      height: 100%;
+      visibility: hidden;
+      overflow: visible;
+      display: block;
+    }
+    .final-message {
+      position: fixed;
+      bottom: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      max-width: 90%;
+      color: #ffffff;
+      text-align: center;
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      white-space: pre-line;
+      z-index: 10;
+    }
+    @keyframes flickr {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.2; }
+    }
+    @keyframes fall {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      100% { transform: translate(20vw, 110vh) rotate(360deg); }
+    }
+    @keyframes lights-float {
+      0%, 100% { transform: translateY(0) scale(1); opacity: 0.75; }
+      50% { transform: translateY(-12px) scale(1.03); opacity: 1; }
+    }
+    @media (max-width: 520px) {
+      .present-bow {
+        width: 120px;
+        height: 70px;
+      }
+      .present-lid {
+        height: 95px;
+      }
+      .present-body {
+        height: 135px;
+      }
+    }
+    .landing-lights {
+      position: absolute;
+      top: 6px;
+      left: 8%;
+      right: 8%;
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      pointer-events: none;
+    }
+    .landing-lights span {
+      width: clamp(8px, 2.2vw, 12px);
+      height: clamp(8px, 2.2vw, 12px);
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.9) 0 35%, rgba(201,162,74,0.85) 36% 100%);
+      box-shadow: 0 0 12px rgba(201,162,74,0.7);
+      animation: light-twinkle 4.8s ease-in-out infinite;
+    }
+    .landing-lights span:nth-child(2n) {
+      background: radial-gradient(circle, rgba(255,255,255,0.9) 0 30%, rgba(166,31,53,0.85) 32% 100%);
+      box-shadow: 0 0 12px rgba(166,31,53,0.6);
+      animation-delay: 0.8s;
+    }
+    .landing-lights span:nth-child(3n) {
+      background: radial-gradient(circle, rgba(255,255,255,0.9) 0 30%, rgba(13,58,45,0.9) 32% 100%);
+      box-shadow: 0 0 12px rgba(13,58,45,0.6);
+      animation-delay: 1.6s;
+    }
+    .bear {
+      position: absolute;
+      width: clamp(52px, 12vw, 78px);
+      height: clamp(52px, 12vw, 78px);
+      background: radial-gradient(circle at 30% 25%, #ffffff 0 28%, #e9e6df 65%, #d8d3c7 100%);
+      border-radius: 50%;
+      box-shadow: 0 8px 18px rgba(15,33,28,0.18);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .bear::before,
+    .bear::after {
+      content: "";
+      position: absolute;
+      width: 32%;
+      height: 32%;
+      background: radial-gradient(circle, #ffffff 0 45%, #dcd7cc 70%);
+      border-radius: 50%;
+      top: -10%;
+    }
+    .bear::before { left: 4%; }
+    .bear::after { right: 4%; }
+    .bear-face {
+      position: absolute;
+      width: 46%;
+      height: 38%;
+      background: radial-gradient(circle at 40% 35%, #fefbf6 0 40%, #e3ddcf 100%);
+      border-radius: 50%;
+      left: 27%;
+      top: 38%;
+      box-shadow: inset 0 0 0 1px rgba(120,108,92,0.15);
+    }
+    .bear-face::before,
+    .bear-face::after {
+      content: "";
+      position: absolute;
+      width: 16%;
+      height: 16%;
+      background: #2b2b2b;
+      border-radius: 50%;
+      top: 26%;
+    }
+    .bear-face::before { left: 22%; }
+    .bear-face::after { right: 22%; }
+    .bear-nose {
+      position: absolute;
+      width: 14%;
+      height: 12%;
+      background: #3a3128;
+      border-radius: 50%;
+      left: 43%;
+      top: 56%;
+    }
+    .bear-left {
+      left: 2%;
+      bottom: -10%;
+      transform: rotate(-4deg);
+    }
+    .bear-right {
+      right: 2%;
+      bottom: -10%;
+      transform: rotate(4deg);
+    }
+</style>
+  <!-- GSAP 3 core + plugins (standard, non-trial builds) -->
+  <script src="js/gsap.min.js"></script>
+  <script src="js/MorphSVGPlugin.min.js"></script>
+  <script src="js/Physics2DPlugin.min.js"></script>
+</head>
+<body>
+  <div class="snowflake-area" aria-hidden="true"></div>
+  <div class="container">
+    <section id="landingCard" class="card landing">
+      <div class="hero-badge">Open Your Gift</div>
+      <div class="landing-lights" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="landing-inner">
+        <div class="bear bear-left" aria-hidden="true">
+          <span class="bear-face"></span>
+          <span class="bear-nose"></span>
+        </div>
+        <div class="bear bear-right" aria-hidden="true">
+          <span class="bear-face"></span>
+          <span class="bear-nose"></span>
+        </div>
+        <button type="button" class="present-btn" onclick="openGift()" aria-label="Open the gift">
+          <div class="present">
+            <div class="present-lid"></div>
+            <div class="present-body"></div>
+            <div class="present-ribbon"></div>
+            <div class="present-bow">
+              <div class="bow-loop"></div>
+              <div class="bow-loop"></div>
+              <div class="bow-knot"></div>
+            </div>
+          </div>
+          <img class="present-santa" src="pic/santa_bessie.png" alt="Santa Bessie peeking out of the gift" />
+        </button>
+        <div class="present-message">
+          <h1 class="present-title">Mom &amp; Dad's Dream Trip</h1>
+          <p class="present-copy">
+            Merry Christmas! 2025 has been tough, let elf Bessie help you plan a magical trip together to kick off 2026!
+          </p>
+          <div class="present-actions">
+            <button type="button" class="start-btn button" onclick="startQuiz()">Start the quiz</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <form id="tripForm" class="card" style="display:none;">
+      <!-- Step 1: Who & When -->
+      <div class="step step-active" data-step="1">
+        <h2>1. Who &amp; When</h2>
+
+        <label for="momName">Mom's name</label>
+        <input id="momName" type="text" placeholder="e.g., Alice" />
+
+        <label for="dadName">Dad's name</label>
+        <input id="dadName" type="text" placeholder="e.g., Bob" />
+
+        <label for="homeAirport">Home city / airport</label>
+        <input id="homeAirport" type="text" placeholder="e.g., San Francisco (SFO)" />
+
+        <label for="earliestDate">Earliest departure date</label>
+        <input id="earliestDate" type="date" />
+
+        <label for="latestDate">Latest return date</label>
+        <input id="latestDate" type="date" />
+
+        <label>Are your dates flexible?</label>
+        <div class="options">
+          <label><input type="radio" name="dateFlex" value="very flexible" /> Very flexible</label>
+          <label><input type="radio" name="dateFlex" value="somewhat flexible" /> Somewhat flexible</label>
+          <label><input type="radio" name="dateFlex" value="not flexible" /> Not flexible</label>
+        </div>
+
+        <div class="buttons">
+          <button type="button" class="primary-btn button" onclick="nextStep()">Next</button>
+        </div>
+      </div>
+
+      <!-- Step 2: Trip Style & Region -->
+      <div class="step" data-step="2">
+        <h2>2. Trip Style & Region</h2>
+
+        <label>What kind of scenery do you want most?</label>
+        <div class="options">
+          <label><input type="radio" name="scenery" value="beach & ocean" /> Beach & ocean</label>
+          <label><input type="radio" name="scenery" value="big city & culture" /> Big city & culture</label>
+          <label><input type="radio" name="scenery" value="mountains & nature" /> Mountains & nature</label>
+          <label><input type="radio" name="scenery" value="cute old towns & villages" /> Cute old towns & villages</label>
+        </div>
+
+        <label>What's your ideal trip pace?</label>
+        <div class="options">
+          <label><input type="radio" name="pace" value="very relaxing" /> Very relaxing</label>
+          <label><input type="radio" name="pace" value="balanced" /> Balanced</label>
+          <label><input type="radio" name="pace" value="active" /> Active</label>
+        </div>
+
+        <label>Which region sounds most appealing?</label>
+      <div class="options">
+        <label><input type="radio" name="region" value="Europe" /> Europe</label>
+        <label><input type="radio" name="region" value="Asia" /> Asia</label>
+        <label><input type="radio" name="region" value="North America" /> North America</label>
+        <label><input type="radio" name="region" value="no preference" /> No preference / surprise us</label>
+      </div>
+
+      <div class="question-visual">
+        <label>Which of these scenes feels most like your dream trip? (Optional)</label>
+        <div class="image-choice-grid">
+          <label class="image-choice">
+            <input type="radio" name="sceneCard" value="Snowy village" />
+            <span class="image-choice-inner">
+              <span class="image-choice-emoji">🏘️</span>
+              <span class="image-choice-title">Snowy Village</span>
+              <span class="image-choice-sub">Cozy lights and quiet streets</span>
+            </span>
+          </label>
+          <label class="image-choice">
+            <input type="radio" name="sceneCard" value="Seaside sunrise" />
+            <span class="image-choice-inner">
+              <span class="image-choice-emoji">🌅</span>
+              <span class="image-choice-title">Seaside Sunrise</span>
+              <span class="image-choice-sub">Calm waves and warm air</span>
+            </span>
+          </label>
+          <label class="image-choice">
+            <input type="radio" name="sceneCard" value="Mountain retreat" />
+            <span class="image-choice-inner">
+              <span class="image-choice-emoji">🏔️</span>
+              <span class="image-choice-title">Mountain Retreat</span>
+              <span class="image-choice-sub">Fresh air and scenic hikes</span>
+            </span>
+          </label>
+          <label class="image-choice">
+            <input type="radio" name="sceneCard" value="City sparkle" />
+            <span class="image-choice-inner">
+              <span class="image-choice-emoji">✨</span>
+              <span class="image-choice-title">City Sparkle</span>
+              <span class="image-choice-sub">Culture, lights, and shows</span>
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <div class="buttons">
+        <button type="button" class="secondary-btn" onclick="prevStep()">Back</button>
+        <button type="button" class="primary-btn button" onclick="nextStep()">Next</button>
+      </div>
+    </div>
+
+      <!-- Step 3: Preferences -->
+      <div class="step" data-step="3">
+        <h2>3. Preferences</h2>
+
+        <label>What activities do you enjoy?</label>
+        <div class="options">
+          <label><input type="checkbox" name="activities" value="museums & history" /> Museums & history</label>
+          <label><input type="checkbox" name="activities" value="scenic walks / light hikes" /> Scenic walks / light hikes</label>
+          <label><input type="checkbox" name="activities" value="food & markets" /> Food & markets</label>
+          <label><input type="checkbox" name="activities" value="shopping" /> Shopping</label>
+          <label><input type="checkbox" name="activities" value="beaches / pools" /> Beaches / pools</label>
+          <label><input type="checkbox" name="activities" value="shows / performances" /> Shows / performances</label>
+        </div>
+
+        <label for="health">Any health / mobility considerations?</label>
+        <textarea id="health" placeholder="e.g., prefer not to walk long distances"></textarea>
+
+        <label for="foodPrefs">Food preferences or restrictions?</label>
+        <textarea id="foodPrefs" placeholder="e.g., love seafood, no spicy food, vegetarian, etc."></textarea>
+
+      <label>Budget comfort level (excluding flights)</label>
+      <div class="options">
+        <label><input type="radio" name="budget" value="modest" /> Modest</label>
+        <label><input type="radio" name="budget" value="comfortable" /> Comfortable</label>
+        <label><input type="radio" name="budget" value="splurge a bit" /> Splurge a bit</label>
+      </div>
+
+      <div class="question-visual">
+        <label>Choose a little trip “mascot” just for fun: (Optional)</label>
+        <div class="image-choice-grid">
+          <label class="image-choice">
+            <input type="radio" name="mascot" value="Polar bear" />
+            <span class="image-choice-inner">
+              <span class="image-choice-emoji">🐻‍❄️</span>
+              <span class="image-choice-title">Polar Bear</span>
+              <span class="image-choice-sub">Cozy and adventurous</span>
+            </span>
+          </label>
+          <label class="image-choice">
+            <input type="radio" name="mascot" value="Backpack" />
+            <span class="image-choice-inner">
+              <span class="image-choice-emoji">🎒</span>
+              <span class="image-choice-title">Backpack</span>
+              <span class="image-choice-sub">Always ready to explore</span>
+            </span>
+          </label>
+          <label class="image-choice">
+            <input type="radio" name="mascot" value="Camera" />
+            <span class="image-choice-inner">
+              <span class="image-choice-emoji">📷</span>
+              <span class="image-choice-title">Camera</span>
+              <span class="image-choice-sub">Memories first</span>
+            </span>
+          </label>
+          <label class="image-choice">
+            <input type="radio" name="mascot" value="Star" />
+            <span class="image-choice-inner">
+              <span class="image-choice-emoji">⭐</span>
+              <span class="image-choice-title">Star</span>
+              <span class="image-choice-sub">A little magic</span>
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <div class="buttons">
+        <button type="button" class="secondary-btn" onclick="prevStep()">Back</button>
+        <button type="button" class="primary-btn button" onclick="nextStep()">Next</button>
+      </div>
+    </div>
+
+      <!-- Step 4: Extras -->
+      <div class="step" data-step="4">
+        <h2>4. Final Details</h2>
+
+        <label for="visited">Places you've already visited and don't want to repeat?</label>
+        <textarea id="visited" placeholder="Optional"></textarea>
+
+        <label for="perfect">Top 3 things that would make this trip perfect?</label>
+        <textarea id="perfect" placeholder="Optional"></textarea>
+
+        <label for="avoid">Anything you absolutely do NOT want?</label>
+        <textarea id="avoid" placeholder="Optional"></textarea>
+
+        <div class="buttons">
+          <button type="button" class="secondary-btn" onclick="prevStep()">Back</button>
+          <button type="button" class="primary-btn button" onclick="handleSubmit()">See Summary</button>
+        </div>
+      </div>
+    </form>
+
+    <div id="summaryCard" class="card" style="display:none;">
+      <h2>Your Trip Summary</h2>
+      <p>Here is what I’ll use to design your vacation:</p>
+      <div id="summaryText" class="summary"></div>
+
+      <div id="proposalSection" class="proposals" style="display:none;">
+        <h3>Travel Proposals</h3>
+        <div id="proposalList"></div>
+      </div>
+
+      <button class="primary-btn button" style="margin-top:12px;" onclick="copySummary()">
+        Copy plan (for Bessie)
+      </button>
+      <button class="secondary-btn button gold-sparkle-btn" style="margin-top:8px;" onclick="showFinalSurprise()">
+        See one last surprise
+      </button>
+    </div>
+
+    <section id="finalSurpriseCard" class="final-overlay">
+      <div class="christmas-card">
+        <input id="open" type="checkbox" />
+        <div class="card-front">
+          <div class="christmas-tree"></div>
+          <div class="star"></div>
+          <div class="balls"></div>
+          <div class="ribbon"></div>
+          <div class="text">Open me</div>
+        </div>
+        <div class="card-inside">
+          <div class="title">A final gift</div>
+          <div class="wishes">
+            I’ll refine this into a detailed itinerary and book a <span class="gold-text">Michelin-starred dinner</span> for one night of the trip as my gift to you.
+          </div>
+          <div class="gift">
+            <div class="bow"></div>
+          </div>
+        </div>
+        <label class="open" for="open" aria-label="Open the card"></label>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    let currentStep = 1;
+    const totalSteps = 4;
+    let giftOpened = false;
+
+    function openGift() {
+      const landing = document.getElementById("landingCard");
+      const presentButton = document.querySelector(".present-btn");
+      if (presentButton) {
+        if (presentButton.classList.contains("is-opening")) return;
+        presentButton.classList.add("is-opening");
+        presentButton.disabled = true;
+      }
+      if (landing) landing.classList.add("show-message");
+      giftOpened = true;
+    }
+
+    function startQuiz() {
+      const landing = document.getElementById("landingCard");
+      const form = document.getElementById("tripForm");
+      if (!giftOpened) {
+        openGift();
+        return;
+      }
+      if (form) {
+        form.style.display = "block";
+        showStep(currentStep);
+        form.scrollIntoView({ behavior: "smooth", block: "start" });
+        const firstInput = form.querySelector("input, select, textarea");
+        if (firstInput) firstInput.focus({ preventScroll: true });
+      }
+    }
+
+    function showStep(step) {
+      document.querySelectorAll(".step").forEach((el) => {
+        el.classList.remove("step-active");
+      });
+      const target = document.querySelector(`.step[data-step="${step}"]`);
+      if (target) target.classList.add("step-active");
+    }
+
+    function nextStep() {
+      if (currentStep < totalSteps) {
+        currentStep += 1;
+        showStep(currentStep);
+      }
+    }
+
+    function prevStep() {
+      if (currentStep > 1) {
+        currentStep -= 1;
+        showStep(currentStep);
+      }
+    }
+
+    function handleSubmit() {
+      // collect values
+      const momName = document.getElementById("momName").value.trim() || "Mom";
+      const dadName = document.getElementById("dadName").value.trim() || "Dad";
+      const homeAirport = document.getElementById("homeAirport").value.trim() || "(home airport)";
+      const earliestDate = document.getElementById("earliestDate").value;
+      const latestDate = document.getElementById("latestDate").value;
+
+      const dateFlex = getRadioValue("dateFlex") || "";
+      const scenery = getRadioValue("scenery") || "";
+      const pace = getRadioValue("pace") || "";
+      const region = getRadioValue("region") || "";
+
+      const activities = getCheckboxValues("activities");
+      const health = document.getElementById("health").value.trim();
+      const foodPrefs = document.getElementById("foodPrefs").value.trim();
+      const budget = getRadioValue("budget") || "";
+      const sceneCard = getRadioValue("sceneCard") || "";
+      const mascot = getRadioValue("mascot") || "";
+
+      const visited = document.getElementById("visited").value.trim();
+      const perfect = document.getElementById("perfect").value.trim();
+      const avoid = document.getElementById("avoid").value.trim();
+
+      const dateRangeText =
+        earliestDate && latestDate
+          ? `between ${earliestDate} and ${latestDate}`
+          : earliestDate || latestDate
+          ? earliestDate
+            ? `starting around ${earliestDate}`
+            : `returning by ${latestDate}`
+          : "on dates we’ll finalize together";
+
+      const regionText = region && region !== "no preference"
+        ? `${region.toLowerCase()}`
+        : "a region that fits your preferences";
+
+      const activitiesText = activities.length
+        ? activities.join(", ")
+        : "a mix of relaxing and light sightseeing";
+
+      const paceText = pace ? pace : "a comfortable pace";
+
+      const budgetText = budget
+        ? `${budget} budget`
+        : "a comfortable budget";
+
+      const summaryLines = [];
+
+      summaryLines.push(`Travelers: ${momName} & ${dadName}`);
+      summaryLines.push(`Home base: ${homeAirport}`);
+      summaryLines.push(`Date window: ${dateRangeText} (dates are ${dateFlex || "to be finalized"})`);
+      summaryLines.push("");
+      summaryLines.push(`Overall idea: A ${paceText} trip focused on ${activitiesText}, likely in ${regionText}, while staying within a ${budgetText}.`);
+      summaryLines.push("");
+
+      summaryLines.push("High-level trip outline (for me to refine):");
+      summaryLines.push("- Day 1: Travel from home, arrive, settle into hotel, easy walk and simple dinner nearby.");
+      summaryLines.push("- Day 2–3: Light sightseeing, local highlights, and relaxed exploration matching your interests.");
+      summaryLines.push("- Day 4: Special experiences (scenic spots, markets, museums, or shows you’d enjoy).");
+      summaryLines.push("- Day 5–6: Free time, optional half-day trips, and rest.");
+      summaryLines.push("- Final day: Last strolls, souvenir shopping, and flight home.");
+
+      summaryLines.push("");
+      summaryLines.push(`Food & health notes:`);
+      summaryLines.push(`- Food preferences/constraints: ${foodPrefs || "None noted"}`);
+      summaryLines.push(`- Health & mobility: ${health || "No special notes"}`);
+
+      if (sceneCard || mascot) {
+        summaryLines.push("");
+        summaryLines.push("Fun flavor choices:");
+        if (sceneCard) summaryLines.push(`- Dream scene: ${sceneCard}`);
+        if (mascot) summaryLines.push(`- Trip mascot: ${mascot}`);
+      }
+
+      summaryLines.push("");
+      summaryLines.push("Extra notes from you:");
+      summaryLines.push(`- Places to avoid repeating: ${visited || "None specified"}`);
+      summaryLines.push(`- Top things that would make this trip perfect: ${perfect || "None specified"}`);
+      summaryLines.push(`- Things you absolutely do not want: ${avoid || "None specified"}`);
+      const summaryText = summaryLines.join("\n");
+      document.getElementById("summaryText").textContent = summaryText;
+
+      document.getElementById("tripForm").style.display = "none";
+      document.getElementById("summaryCard").style.display = "block";
+      generateProposals(summaryText);
+    }
+
+    function getRadioValue(name) {
+      const radios = document.querySelectorAll(`input[name="${name}"]`);
+      for (const r of radios) {
+        if (r.checked) return r.value;
+      }
+      return null;
+    }
+
+    function getCheckboxValues(name) {
+      const boxes = document.querySelectorAll(`input[name="${name}"]:checked`);
+      return Array.from(boxes).map((b) => b.value);
+    }
+
+    function copySummary() {
+      const text = document.getElementById("summaryText").textContent;
+      if (!navigator.clipboard) {
+        alert("Copy not supported here; you can select and copy manually.");
+        return;
+      }
+      navigator.clipboard.writeText(text).then(
+        () => alert("Summary copied! Paste it into your notes or ChatGPT to refine the itinerary."),
+        () => alert("Could not copy. Please select and copy manually.")
+      );
+    }
+
+    function showFinalSurprise() {
+      const summary = document.getElementById("summaryCard");
+      const finalCard = document.getElementById("finalSurpriseCard");
+      const openInput = document.getElementById("open");
+      if (summary) summary.style.display = "none";
+      if (finalCard) finalCard.classList.add("show");
+      if (openInput) openInput.checked = false;
+    }
+
+    function revealFinalSurprise() {
+      const finalCard = document.getElementById("finalSurpriseCard");
+      if (finalCard) finalCard.classList.add("is-revealed");
+    }
+
+    async function generateProposals(summaryText) {
+      const section = document.getElementById("proposalSection");
+      const list = document.getElementById("proposalList");
+      if (!section || !list) return;
+
+      section.style.display = "block";
+      list.innerHTML = `<p class="loading">Creating a few trip ideas…</p>`;
+
+      try {
+        const response = await fetch("/api/travel-proposals", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            model: "gpt-4o-mini",
+            summary: summaryText,
+            prompt: "Here is a summary of what a vacation wish for a couple in their 50s is. Can you come up with 3 options that fit their wishes and also give a short summary of the location and the activities?"
+          })
+        });
+
+        if (!response.ok) {
+          throw new Error("Proposal request failed");
+        }
+
+        const data = await response.json();
+        renderProposals(data, list);
+      } catch (err) {
+        list.innerHTML = `<p class="loading">Could not load proposals yet. Please try again later.</p>`;
+      }
+    }
+
+    function renderProposals(data, container) {
+      const proposals = Array.isArray(data?.proposals) ? data.proposals : [];
+      if (!proposals.length) {
+        container.innerHTML = `<p class="loading">No proposals returned.</p>`;
+        return;
+      }
+
+      const cards = proposals.map((proposal) => {
+        const title = proposal.title || "Trip idea";
+        const text = proposal.description || proposal.overview || "";
+        const bullets = Array.isArray(proposal.highlights)
+          ? proposal.highlights
+          : Array.isArray(proposal.bullets)
+          ? proposal.bullets
+          : [];
+
+        const bulletsHtml = bullets.length
+          ? `<ul class="proposal-list">${bullets.map((item) => `<li>${item}</li>`).join("")}</ul>`
+          : "";
+
+        return `
+          <div class="proposal-card">
+            <h4 class="proposal-title">${title}</h4>
+            ${text ? `<p class="proposal-text">${text}</p>` : ""}
+            ${bulletsHtml}
+          </div>
+        `;
+      }).join("");
+
+      container.innerHTML = cards;
+    }
+
+    function initSnowflakes() {
+      const container = document.querySelector(".snowflake-area");
+      if (!container) return;
+      const total = 350;
+      const mdCount = 50;
+      const lgCount = 50;
+      const snowflakeChar = "❄︎";
+
+      for (let i = 0; i < total; i += 1) {
+        const flake = document.createElement("span");
+        flake.className = "snowflake";
+        if (i < lgCount) {
+          flake.classList.add("_lg");
+        } else if (i < lgCount + mdCount) {
+          flake.classList.add("_md");
+        }
+
+        const left = Math.random() * 120 - 20;
+        const blur = Math.max(0, Math.random() * 1.5);
+        const flickrDuration = (Math.random() * 2 + 2).toFixed(2);
+        const flickrDelay = (Math.random() * -2).toFixed(2);
+        const fallDuration = (Math.random() * 8 + 12).toFixed(2);
+        const fallDelay = (Math.random() * -20).toFixed(2);
+
+        flake.style.left = `${left}vw`;
+        flake.style.filter = `blur(${blur}px)`;
+        flake.style.animationDuration = `${fallDuration}s, ${flickrDuration}s`;
+        flake.style.animationDelay = `${fallDelay}s, ${flickrDelay}s`;
+        flake.textContent = snowflakeChar;
+        container.appendChild(flake);
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", initSnowflakes);
+
+    function runMerryAnimation() {
+      function f(a, b, dPath, timeline) {
+        for (var g = 0, h = 0; g < a; g++) {
+          var c = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+          isFirefox ? mainSVG.appendChild(c) : b.appendChild(c);
+          g > h * p && h++;
+          c.setAttributeNS(null, "fill", maskValueArr[h]);
+          c.setAttributeNS(null, "width", 16);
+          c.setAttributeNS(null, "rx", 16);
+          c.setAttributeNS(null, "ry", 16);
+          c.setAttributeNS(null, "height", 16);
+          TweenMax.set(c, { transformOrigin: "50% 50%", scaleY: 1 - g / 100 });
+          var e = new TimelineMax();
+          e.to(c, 1.52, {
+            bezier: { type: "cubic", values: dPath, autoRotate: !0 },
+            ease: Linear.easeNone
+          }).to(c, 0.1, { alpha: 0 }, "-=0.1");
+          timeline.add(e, g / 200);
+          isFirefox && b.appendChild(c);
+        }
+      }
+
+      function d(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) + min);
+      }
+
+      // Shortcuts
+      select = function (a) { return document.querySelector(a); };
+      selectAll = function (a) { return document.querySelectorAll(a); };
+
+      container = document.body;
+      mainSVG = select(".mainSVG");
+      merryGroup = select("#merryGroup");
+      springStroke1 = select("#springStroke1");
+      springStroke2 = select("#springStroke2");
+      springStroke3 = select("#springStroke3");
+      particleContainer = select("#particleContainer");
+      strokeMask1 = select("#strokeMask1");
+      strokeMask2 = select("#strokeMask2");
+      strokeMask3 = select("#strokeMask3");
+      allTextMasks = selectAll(".textMask *");
+
+      maskValueArr = "#111 #222 #333 #444 #555 #666 #777 #888 #999 #aaa #bbb #ccc #ddd #eee #FFF".split(" ").reverse();
+      particleColorArray = ["#F3F1E2"];
+      particleTypeArray = ["#flake1", "#flake2", "#flake3", "#star", "#heart"];
+      particlePool = [];
+      particleCount = 0;
+      numParticles = 512;
+      isFirefox = navigator.userAgent.toLowerCase().indexOf("firefox") > -1;
+
+      TweenMax.set(container, { position: "absolute", top: "50%", left: "50%", xPercent: -50, yPercent: -50 });
+      TweenMax.set("svg", { visibility: "visible" });
+      TweenMax.set(particleContainer, { x: 0, y: 0 });
+
+      var k = new TimelineMax({ paused: !0 }),
+          l = new TimelineMax({ paused: !0 }),
+          m = new TimelineMax({ paused: !0 }),
+          h, p = Math.round(100 / maskValueArr.length),
+          q = MorphSVGPlugin.pathDataToBezier(springStroke1.getAttribute("d"), { offsetX: -8, offsetY: -8 }),
+          n = MorphSVGPlugin.pathDataToBezier(springStroke2.getAttribute("d"), { offsetX: -8, offsetY: -8 }),
+          r = MorphSVGPlugin.pathDataToBezier(springStroke3.getAttribute("d"), { offsetX: -8, offsetY: -8 }),
+          e = new TimelineMax({ repeat: -1, paused: !0 });
+
+      e.to("#dot", 0.4, {
+        attr: { cy: 200, rx: 12, ry: 12 },
+        ease: Power2.easeOut
+      }).to("#dot", 0.3, {
+        attr: { cy: 300 },
+        ease: Power2.easeIn
+      }).set("#splashRing", { alpha: 1 }).to("#dot", 1.2, {
+        attr: { rx: 76, ry: 76 },
+        alpha: 0,
+        ease: Power1.easeOut
+      }).to("#splashRing", 1.2, {
+        attr: { r: 50 },
+        strokeWidth: 0,
+        ease: Power1.easeOut
+      }, "-=1.2").to(k, 3, {
+        time: 2.33,
+        ease: Power2.easeOut
+      }, "-=1.2").to(l, 3.9, {
+        time: 2.33,
+        ease: Power2.easeOut
+      }, "-=2.9").staggerFrom("#merryGroup path", 0.9, {
+        rotation: -95,
+        alpha: 0,
+        transformOrigin: "50% 150%",
+        ease: Elastic.easeOut.config(2, 0.8)
+      }, 0.036, "-=3.3").to(m, 1, {
+        time: 2.1,
+        ease: SlowMo.ease.config(0.1, 0.86, !1)
+      }, "-=2.9").to(particleContainer, 1.4, {
+        bezier: { type: "cubic", values: n, autoRotate: !1 },
+        onUpdate: function () {
+          var a = particlePool[particleCount];
+          TweenMax.set(a, {
+            x: particleContainer._gsTransform.x,
+            y: particleContainer._gsTransform.y,
+            scale: d(1, 15) / 10,
+            transformOrigin: "50% 50%"
+          });
+          var tl = new TimelineMax();
+          tl.to(a, d(3, 6), {
+            physics2D: {
+              velocity: d(5, 10),
+              angle: 0,
+              gravity: d(23, 577)
+            },
+            scale: 0,
+            rotation: d(180, 780),
+            onStart: function (el) {
+              TweenMax.killTweensOf(el, { opacity: !0 });
+              TweenMax.fromTo(
+                el,
+                0.7,
+                { alpha: 1 },
+                {
+                  alpha: Math.random(),
+                  ease: RoughEase.ease.config({
+                    template: Power0.easeNone,
+                    strength: 3,
+                    points: 6,
+                    taper: "both",
+                    randomize: !0,
+                    clamp: !1
+                  }),
+                  repeat: -1
+                }
+              );
+            },
+            onStartParams: [a]
+          });
+          particleCount++;
+          particleCount = particleCount >= numParticles ? 0 : particleCount;
+        },
+        ease: Linear.easeNone
+      }, "-=4").from("#letterI", 0.76, {
+        y: -200,
+        alpha: 0,
+        ease: Power4.easeIn
+      }, "-=2.7").from("#letterI", 1, {
+        rotation: 23,
+        transformOrigin: "50% 100%",
+        ease: Elastic.easeOut.config(1, 0.3)
+      }, "-=2.2").staggerTo(selectAll(".endFlake"), 0.6, {
+        cycle: {
+          x: [-10, 0, 10],
+          y: [200, 100, 300],
+          transformOrigin: ["50% 50%", "50% 150%"]
+        },
+        alpha: 0,
+        rotation: d(200, 360),
+        ease: SlowMo.ease.config(0.1, 0.4, !1)
+      }, 0.02, "-=1.95").staggerTo("#merryGroup *", 0.6, { alpha: 0 }, 0.05).to("#letterI", 0.6, { alpha: 0 }, "-=0.6");
+
+      // build particle pool
+      (function () {
+        for (var a = numParticles, b; --a >= 0;) {
+          b = document.createElementNS("http://www.w3.org/2000/svg", "use");
+          b.setAttributeNS("http://www.w3.org/1999/xlink", "xlink:href", particleTypeArray[a % particleTypeArray.length]);
+          mainSVG.appendChild(b);
+          b.setAttributeNS(null, "fill", particleColorArray[a % particleColorArray.length]);
+          b.setAttributeNS(null, "opacity", 0);
+          b.setAttribute("class", "particle");
+          particlePool.push(b);
+        }
+      })();
+
+      // build masks along strokes
+      f(100, strokeMask1, q, k);
+      f(100, strokeMask2, n, l);
+      f(100, strokeMask3, r, m);
+
+      e.timeScale(0.8);
+      TweenMax.delayedCall(0, function () { e.play(); });
+    }
+  </script>
+</body>
+</html>
