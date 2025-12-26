@@ -165,7 +165,7 @@
       text-align: center;
       padding: 26px 18px 30px;
       position: relative;
-      overflow: visible;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -257,7 +257,6 @@
       height: min(260px, 68vw);
       display: block;
       border-radius: 0;
-      overflow: visible;
     }
     .present {
       position: absolute;
@@ -324,9 +323,9 @@
     .present-santa {
       position: absolute;
       left: 50%;
-      bottom: 120px;
-      width: clamp(150px, 40vw, 240px);
-      transform: translateX(-50%) translateY(8px) scale(1) translateZ(2px);
+      bottom: 143px;
+      width: clamp(140px, 36vw, 210px);
+      transform: translateX(-50%) translateY(12px) scale(0.98) translateZ(2px);
       opacity: 0;
       transition: opacity 0.5s ease, transform 0.6s ease;
       z-index: 10;
@@ -659,83 +658,10 @@
       display: none;
       justify-content: center;
       align-items: center;
-      /* background-color: #fcb592; */
+      background-color: #fcb592;
       z-index: 999;
       padding: 20px;
     }
-</style>
-  <!-- Shooting star background for final surprise */
-.final-overlay {
-  background: linear-gradient(to bottom, #0b0b2b, #1b2735 70%, #090a0f) !important;
-  overflow: hidden;
-  position: fixed;
-}
-
-.final-overlay .stars,
-.final-overlay .shooting-star {
-  position: absolute;
-}
-
-.final-overlay .stars {
-  width: 1px;
-  height: 1px;
-  background: white;
-  box-shadow: 2vw 5vh 2px white, 10vw 8vh 2px white, 15vw 15vh 1px white,
-    22vw 22vh 1px white, 28vw 12vh 2px white, 32vw 32vh 1px white,
-    38vw 18vh 2px white, 42vw 35vh 1px white, 48vw 25vh 2px white,
-    53vw 42vh 1px white, 58vw 15vh 2px white, 63vw 38vh 1px white,
-    68vw 28vh 2px white, 73vw 45vh 1px white, 78vw 32vh 2px white,
-    83vw 48vh 1px white, 88vw 20vh 2px white, 93vw 52vh 1px white,
-    98vw 35vh 2px white, 5vw 60vh 1px white, 12vw 65vh 2px white,
-    18vw 72vh 1px white, 25vw 78vh 2px white, 30vw 85vh 1px white,
-    35vw 68vh 2px white, 40vw 82vh 1px white, 45vw 92vh 2px white,
-    50vw 75vh 1px white, 55vw 88vh 2px white, 60vw 95vh 1px white,
-    65vw 72vh 2px white, 70vw 85vh 1px white, 75vw 78vh 2px white,
-    80vw 92vh 1px white, 85vw 82vh 2px white, 90vw 88vh 1px white,
-    95vw 75vh 2px white;
-  animation: twinkle 8s infinite linear;
-}
-
-.final-overlay .stars::after {
-  content: "";
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  background: white;
-  box-shadow: 8vw 12vh 2px white, 16vw 18vh 1px white, 24vw 25vh 2px white,
-    33vw 15vh 1px white, 41vw 28vh 2px white, 49vw 35vh 1px white,
-    57vw 22vh 2px white, 65vw 42vh 1px white, 73vw 28vh 2px white,
-    81vw 48vh 1px white, 89vw 32vh 2px white, 97vw 45vh 1px white,
-    3vw 68vh 2px white, 11vw 75vh 1px white, 19vw 82vh 2px white,
-    27vw 88vh 1px white, 35vw 72vh 2px white, 43vw 85vh 1px white,
-    51vw 92vh 2px white, 59vw 78vh 1px white;
-  animation: twinkle 6s infinite linear reverse;
-}
-
-.final-overlay .shooting-star {
-  width: 100px;
-  height: 2px;
-  background: linear-gradient(90deg, white, transparent);
-  animation: shoot 3s infinite ease-in;
-  left: -100px;
-}
-
-.final-overlay .shooting-star:nth-child(2) { top: 20%; animation-delay: 0s; }
-.final-overlay .shooting-star:nth-child(3) { top: 35%; animation-delay: 1s; }
-.final-overlay .shooting-star:nth-child(4) { top: 50%; animation-delay: 2s; }
-.final-overlay .shooting-star:nth-child(5) { top: 65%; animation-delay: 3s; }
-.final-overlay .shooting-star:nth-child(6) { top: 75%; animation-delay: 4s; }
-
-@keyframes twinkle {
-  0%,100% { opacity: 0.8; }
-  50% { opacity: 0.4; }
-}
-
-@keyframes shoot {
-  0% { transform: translateX(0) translateY(0) rotate(25deg); opacity: 1; }
-  100% { transform: translateX(120vw) translateY(50vh) rotate(25deg); opacity: 0; }
-}
-</style>
     .final-overlay.show {
       display: flex;
     }
@@ -1193,23 +1119,6 @@
       animation-delay: 1.6s;
     }
     .bear {
-    .music-toggle {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.4);
-      background: rgba(9,10,15,0.5);
-      color: #fdfaf2;
-      font-size: 0.8rem;
-      cursor: pointer;
-      z-index: 1000;
-      backdrop-filter: blur(6px);
-    }
-    .music-toggle:hover {
-      background: rgba(255,255,255,0.12);
-    }
       position: absolute;
       width: clamp(52px, 12vw, 78px);
       height: clamp(52px, 12vw, 78px);
@@ -1535,13 +1444,6 @@
     </div>
 
     <section id="finalSurpriseCard" class="final-overlay">
-      <button type="button" class="music-toggle" onclick="toggleMusic()" aria-label="Toggle background music">♫ Music on</button>
-      <div class="stars"></div>
-      <div class="shooting-star"></div>
-      <div class="shooting-star"></div>
-      <div class="shooting-star"></div>
-      <div class="shooting-star"></div>
-      <div class="shooting-star"></div>
       <div class="christmas-card">
         <input id="open" type="checkbox" />
         <div class="card-front">
@@ -1565,39 +1467,10 @@
     </section>
   </div>
 
-  <!-- Global background music (plays after first interaction) -->
-  <audio id="appMusic" loop preload="auto">
-    <source src="audio/christmas_soft.mp3" type="audio/mpeg" />
-    Your browser does not support the audio element.
-  </audio>
-
-  <!-- Final surprise music (only for the last screen) -->
-  <audio id="finalMusic" loop preload="auto">
-    <source src="audio/christmas_starry.mp3" type="audio/mpeg" />
-    Your browser does not support the audio element.
-  </audio>
-
   <script>
     let currentStep = 1;
     const totalSteps = 4;
     let giftOpened = false;
-    let musicInitialized = false;
-
-    function ensureAppMusic() {
-      if (musicInitialized) return;
-      const appMusic = document.getElementById("appMusic");
-      const musicBtn = document.querySelector(".music-toggle");
-      if (!appMusic) return;
-
-      appMusic.volume = 0.35;
-      appMusic.play().then(() => {
-        musicInitialized = true;
-        if (musicBtn) musicBtn.textContent = "♫ Music off";
-      }).catch(() => {
-        // Autoplay might be blocked; button will show "Music on" until clicked
-        if (musicBtn) musicBtn.textContent = "♫ Music on";
-      });
-    }
 
     function openGift() {
       const landing = document.getElementById("landingCard");
@@ -1609,9 +1482,6 @@
       }
       if (landing) landing.classList.add("show-message");
       giftOpened = true;
-
-      // Start the global background music after this first interaction
-      ensureAppMusic();
     }
 
     function startQuiz() {
@@ -1770,49 +1640,12 @@
       const openInput = document.getElementById("open");
       if (summary) summary.style.display = "none";
       if (finalCard) finalCard.classList.add("show");
-
-      const appMusic = document.getElementById("appMusic");
-      const finalMusic = document.getElementById("finalMusic");
-      const musicBtn = document.querySelector(".music-toggle");
-
-      // Pause global music and start final-page music
-      if (appMusic) appMusic.pause();
-      if (finalMusic) {
-        finalMusic.volume = 0.35;
-        finalMusic.currentTime = 0;
-        finalMusic.play().then(() => {
-          if (musicBtn) musicBtn.textContent = "♫ Music off";
-        }).catch(() => {
-          if (musicBtn) musicBtn.textContent = "♫ Music on";
-        });
-      }
-
       if (openInput) openInput.checked = false;
     }
 
-    function toggleMusic() {
+    function revealFinalSurprise() {
       const finalCard = document.getElementById("finalSurpriseCard");
-      const isFinalVisible = finalCard && finalCard.classList.contains("show");
-
-      const appMusic = document.getElementById("appMusic");
-      const finalMusic = document.getElementById("finalMusic");
-      const btn = document.querySelector(".music-toggle");
-      if (!btn) return;
-
-      // Decide which track to control
-      const audio = isFinalVisible && finalMusic ? finalMusic : appMusic;
-      if (!audio) return;
-
-      if (audio.paused) {
-        audio.play().then(() => {
-          btn.textContent = "♫ Music off";
-        }).catch(() => {
-          // if blocked, leave text as-is
-        });
-      } else {
-        audio.pause();
-        btn.textContent = "♫ Music on";
-      }
+      if (finalCard) finalCard.classList.add("is-revealed");
     }
 
 
